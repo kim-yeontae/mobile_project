@@ -10,7 +10,7 @@ import SwiperSection from "@/components/SwiperSection";
 import Countdown from "@/components/CountDown";
 import KakaoMap from "@/components/KakaoMap";
 import NavButton from "@/components/NavButton";
-
+import { XMarkIcon } from "@heroicons/react/24/solid";
 import Image_1 from "../images/image_1.jpg";
 import tw, { styled } from "twin.macro";
 
@@ -24,6 +24,12 @@ const Wrapper = styled.div`
     }
     .contents_text {
         ${tw`text-14pxr xs:text-16pxr`}
+    }
+    .map_title {
+        ${tw`text-14pxr xs:text-15pxr`}
+    }
+    .map_contents {
+        ${tw`text-13pxr xs:text-14pxr`}
     }
     .question_title {
         ${tw`text-16pxr xs:text-17pxr `}
@@ -54,6 +60,32 @@ const Wrapper = styled.div`
         ${tw`py-[3.5%] text-center`}
     }
 `;
+const GUEST_BOOK_DATA = [
+    {
+        id: 1,
+        name: "김연태",
+        password: "1234",
+        contents: "테스트 방명록입니다.",
+    },
+    {
+        id: 2,
+        name: "신지용",
+        password: "1234",
+        contents: "테스트 방명록입니다.",
+    },
+    {
+        id: 3,
+        name: "김덕민",
+        password: "1234",
+        contents: "테스트 방명록입니다.",
+    },
+    {
+        id: 4,
+        name: "김환",
+        password: "1234",
+        contents: "테스트 방명록입니다.",
+    },
+];
 const MAN_CONTACT_DATA = {
     type: "man",
     data: [
@@ -125,6 +157,10 @@ export default function Home() {
     const [modalState, setModalState] = useState(null);
     const [interviewMore, setInterviewMore] = useState(false);
     const [activeGallery, setActiveGallery] = useState(null);
+    const [guestName, setGuestName] = useState(null);
+    const [guestPassword, setGuestPassword] = useState(null);
+    const [guestText, setGuestText] = useState(null);
+
     const handleGalleryItemClick = (index) => {
         setActiveGallery(index);
         setModalState("gallery");
@@ -435,7 +471,115 @@ export default function Home() {
                                 <span>약도 보기</span>
                             </button>
                         </div>
-                        <div>{/* <NavButton /> */}</div>
+                    </div>
+                    {/* 교통정보 */}
+                    <div className="mb-[13.34%] px-[7.11%] space-y-[5.33%]">
+                        <div className="space-y-12pxr pb-[5%] border-b border-dotted">
+                            <div className="map_title">내비게이션</div>
+                            <div className="map_contents">
+                                원하시는 앱을 선택하시면 길안내가 시작됩니다.
+                            </div>
+                            <NavButton />
+                        </div>
+                        <div className="space-y-12pxr pb-[5%] border-b border-dotted">
+                            <div className="map_title">대중교통</div>
+                            <div className="map_contents flex flex-col gap-y-10pxr">
+                                <span>
+                                    ● 대전역 (201번,202번) &rarr; 동방고등학교
+                                    하차 (건너편)
+                                </span>
+                                <span>
+                                    ● 대전역/역전시장 (급행1, 급행2002 , 20번)
+                                    &rarr; 가수원육교 , 가수원시장 하차(도보
+                                    600M) 하차 (건너편)
+                                </span>
+                                <span>
+                                    ● 대전복합터미널 (201번) &rarr; 동방고등학교
+                                    하차 (건너편)
+                                </span>
+                                <span>
+                                    ● 유성고속터미널 (114번) &rarr; 동방고등학교
+                                    하차 (건너편)
+                                </span>
+                                <span>
+                                    ● 동방고등학교 경유 : 114번, 212번, 43번,
+                                    46번, 2002번, 47-1번
+                                </span>
+                            </div>
+                        </div>
+                        <div className="space-y-12pxr pb-[5%] border-b border-dotted">
+                            <div className="map_title">고속도로</div>
+                            <div className="map_contents flex flex-col gap-y-10pxr">
+                                <span>
+                                    ● 하행선 : 서울출발 &rarr; 경부고속도로
+                                    &rarr; 유성분기점 &rarr; 호남고속도로&rarr;
+                                    서대전분기점 &rarr; 남부순환고속도로 &rarr;
+                                    서대전 IC &rarr; 라비에벨웨딩홀
+                                </span>
+                                <span>
+                                    ● 상행선 : 부산출발 &rarr; 경부고속도로
+                                    &rarr; 비룡분기점 &rarr; 산내분기점 &rarr;
+                                    남부순환고속도로 &rarr; 서대전IC &rarr;
+                                    라이에벨웨딩홀
+                                </span>
+                            </div>
+                        </div>
+                        <div className="space-y-12pxr pb-[5%] border-b border-dotted">
+                            <div className="map_title">
+                                네비게이션 주소 : 대전광역시 서구 계백로 1108
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {/* 달력 섹션 */}
+                <div className="mb-[13.34%]">
+                    <div className="text-center p-[7.34%]">
+                        <div className=" space-y-10pxr ">
+                            <div className="en_title tracking-widest">
+                                GUESTBOOK
+                            </div>
+                            <div className="contents_title pb-30pxr">
+                                방명록
+                            </div>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div className="pb-[7.34%] px-[6.5%] space-y-10pxr">
+                        <div className="space-y-8pxr">
+                            {GUEST_BOOK_DATA.map((item, index) => {
+                                return (
+                                    <div
+                                        key={"guestbook" + index}
+                                        className="bg-[rgba(117,81,125,.5)] px-16pxr py-14pxr rounded-8pxr map_contents"
+                                    >
+                                        <div className="flex items-center justify-between pb-4pxr">
+                                            <span className="font-semibold">
+                                                {item.name}
+                                            </span>
+                                            <span>
+                                                <XMarkIcon
+                                                    className="w-20pxr xs:w-20pxr h-24pxr xs:h-24pxr cursor-pointer"
+                                                    width={32}
+                                                    height={32}
+                                                    onClick={() => {}}
+                                                />
+                                            </span>
+                                        </div>
+                                        <div>{item.contents}</div>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        <div className="flex justify-end">
+                            <button
+                                onClick={() => {
+                                    setModalState("guestbook");
+                                }}
+                                className=" bg-[rgba(117,81,125,.5)] flex gap-x-4pxr xs:gap-x-8pxr items-center justify-center px-12pxr py-6pxr rounded-6pxr text-12pxr xs:text-13pxr"
+                            >
+                                작성하기
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -629,6 +773,64 @@ export default function Home() {
                         height={600}
                         layout="responsive"
                     />
+                </div>
+            </ModalBack>
+            {/* 방명록 작성 모달 */}
+            <ModalBack
+                action={modalState === "guestbook"}
+                closeHandle={handleModalCloseClick}
+            >
+                <div
+                    className={`flex flex-col justify-start items-center pt-[10%] xs:pt-[15%] max-w-[450px] w-full`}
+                >
+                    <div className="w-full pb-[4%] mb-[8%] flex flex-col justify-start items-center border-b border-dotted">
+                        <p className="contents_title">방명록 작성하기</p>
+                    </div>
+                    <div className="w-[90%] contents_text">
+                        <div className="space-y-[5%]">
+                            <div className="flex items-center ">
+                                <div className="w-72pxr">이름</div>
+                                <input
+                                    value={guestName || ""}
+                                    onChange={(e) => {
+                                        setGuestName(e.target.value);
+                                    }}
+                                    className="border rounded-4pxr flex-1 text-[#1a1a1a] px-6pxr py-2pxr"
+                                />
+                            </div>
+                            <div className="flex items-center ">
+                                <div className="w-72pxr">비밀번호</div>
+                                <input
+                                    value={guestPassword || ""}
+                                    onChange={(e) => {
+                                        setGuestPassword(e.target.value);
+                                    }}
+                                    type="password"
+                                    className="border rounded-4pxr flex-1 text-[#1a1a1a] px-6pxr py-2pxr"
+                                />
+                            </div>
+                            <div className="flex">
+                                <div className="w-72pxr">내용</div>
+                                <textarea
+                                    value={guestText || ""}
+                                    onChange={(e) => {
+                                        setGuestText(e.target.value);
+                                    }}
+                                    className="border rounded-4pxr flex-1 text-[#1a1a1a] px-6pxr py-4pxr"
+                                />
+                            </div>
+                        </div>
+                        <button
+                            onClick={() => {
+                                console.log("name", guestName);
+                                console.log("password", guestPassword);
+                                console.log("text", guestText);
+                            }}
+                            className="flex w-full items-center justify-center gap-x-6pxr border border-[#e1e1e1] rounded-10pxr py-4pxr xs:py-8pxr contents_text mt-32pxr"
+                        >
+                            축하 글 남기기
+                        </button>
+                    </div>
                 </div>
             </ModalBack>
         </Wrapper>
