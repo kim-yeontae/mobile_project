@@ -38,7 +38,7 @@ const SnowAnimation = () => {
     }, []);
 
     return (
-        <div className="snow-container">
+        <div className="snow-container overflow-hidden">
             {Array.from({ length: 300 }).map((_, i) => (
                 <div
                     key={i}
