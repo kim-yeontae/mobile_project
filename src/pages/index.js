@@ -328,7 +328,7 @@ export default function Home() {
                                 2024.11.03
                             </div>
                             <div className="contents_title pb-30pxr">
-                                일요일 오전 11시 30분
+                                일요일 오전 11시 30분 !!!!!
                             </div>
                         </div>
                     </div>
