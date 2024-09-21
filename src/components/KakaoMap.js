@@ -15,6 +15,7 @@ export default function KakaoMap() {
                 const options = {
                     center: new kakao.maps.LatLng(36.3025526, 127.3470381), // 대전 라비에벨 웨딩홀 좌표
                     level: 3, // 확대 레벨
+                    scrollwheel: false,
                 };
                 const map = new kakao.maps.Map(container, options); // 지도 생성
 

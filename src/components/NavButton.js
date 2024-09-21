@@ -44,7 +44,7 @@ export default function NavButton() {
         <div className="flex gap-x-8pxr ">
             <button
                 onClick={handleNaverClick}
-                className="flex gap-x-4pxr xs:gap-x-8pxr items-center justify-center border px-12pxr py-8pxr rounded-10pxr text-12pxr xs:text-13pxr flex-1"
+                className="flex gap-x-4pxr xs:gap-x-8pxr items-center justify-center border px-8pxr xs:px-12pxr py-8pxr rounded-10pxr text-12pxr xs:text-16pxr flex-1"
             >
                 <span>
                     <Image
@@ -60,7 +60,7 @@ export default function NavButton() {
             </button>
             <button
                 onClick={handleKakaoClick}
-                className="flex gap-x-4pxr xs:gap-x-8pxr items-center justify-center border px-12pxr py-8pxr rounded-10pxr text-12pxr xs:text-13pxr flex-1"
+                className="flex gap-x-4pxr xs:gap-x-8pxr items-center justify-center border px-8pxr xs:px-12pxr py-8pxr rounded-10pxr text-12pxr xs:text-16pxr flex-1"
             >
                 <span>
                     <Image
@@ -76,7 +76,7 @@ export default function NavButton() {
             </button>
             <button
                 onClick={handleTmapClick}
-                className="flex gap-x-4pxr xs:gap-x-8pxr items-center justify-center border px-12pxr py-8pxr rounded-10pxr text-12pxr xs:text-13pxr flex-1"
+                className="flex gap-x-4pxr xs:gap-x-8pxr items-center justify-center border px-8pxr xs:px-12pxr py-8pxr rounded-10pxr text-12pxr xs:text-16pxr flex-1"
             >
                 <span>
                     <Image

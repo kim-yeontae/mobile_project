@@ -19,7 +19,7 @@ import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { MapIcon } from "@heroicons/react/24/outline";
 
 const Wrapper = styled.div`
-    ${tw`h-[100vh] overflow-scroll`}
+    ${tw`h-full`}
     .contents_title {
         ${tw`text-16pxr ss:text-18pxr xs:text-20pxr`}
     }
@@ -177,7 +177,7 @@ export default function Home() {
             <SnowAnimation />
 
             <div className=" max-w-[450px] mx-auto pb-80pxr relative z-[2]">
-                <div className="mb-[21.34%] px-[6.67%]">
+                <div className="mb-[21.34%] px-[6.5%]">
                     <div className="pt-48pxr pb-30pxr flex flex-col items-center">
                         <span className="text-30pxr">
                             2024
@@ -211,8 +211,8 @@ export default function Home() {
                     </div>
                 </div>
                 {/* 연락하기 섹션 */}
-                <div>
-                    <div className="text-center p-[7.34%]">
+                <div data-aos="fade-up">
+                    <div className="text-center p-[6.5%]">
                         <div className=" space-y-10pxr ">
                             <div className="en_title tracking-widest">
                                 INVITATION
@@ -290,8 +290,8 @@ export default function Home() {
                     </div>
                 </div>
                 {/* 인터뷰 섹션 */}
-                <div>
-                    <div className="text-center p-[7.34%]">
+                <div data-aos="fade-up">
+                    <div className="text-center p-[6.5%]">
                         <div className=" space-y-10pxr ">
                             <div className="en_title tracking-widest">
                                 INTERVIEW
@@ -340,8 +340,8 @@ export default function Home() {
                     </div>
                 </div>
                 {/* 갤러리 섹션 */}
-                <div>
-                    <div className="text-center p-[7.34%]">
+                <div data-aos="fade-up">
+                    <div className="text-center p-[6.5%]">
                         <div className=" space-y-10pxr ">
                             <div className="en_title tracking-widest">
                                 GALLERY
@@ -359,8 +359,8 @@ export default function Home() {
                     </div>
                 </div>
                 {/* 달력 섹션 */}
-                <div className="mb-[13.34%]">
-                    <div className="text-center p-[7.34%]">
+                <div className="mb-[13.34%]" data-aos="fade-up">
+                    <div className="text-center p-[6.5%]">
                         <div className=" space-y-6pxr border-b ">
                             <div className="text-18pxr ss:text:20pxr xs:text-24pxr tracking-widest">
                                 2024.11.03
@@ -370,7 +370,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                    <div className="calender pb-[7.34%] mx-[10%] border-b">
+                    <div className="calender pb-[6.5%] mx-[10%] border-b">
                         <table className="w-full">
                             <thead>
                                 <tr>
@@ -437,8 +437,8 @@ export default function Home() {
                     <Countdown />
                 </div>
                 {/* 오시는길 섹션 */}
-                <div>
-                    <div className="text-center p-[7.34%]">
+                <div data-aos="fade-up">
+                    <div className="text-center p-[6.5%]">
                         <div className=" space-y-10pxr ">
                             <div className="en_title tracking-widest">
                                 LOCATION
@@ -475,7 +475,7 @@ export default function Home() {
                         </div>
                     </div>
                     {/* 교통정보 */}
-                    <div className="mb-[13.34%] px-[7.11%] space-y-[5.33%]">
+                    <div className="mb-[13.34%] px-[6.5%] space-y-[5.33%]">
                         <div className="space-y-12pxr pb-[5%] border-b border-dotted">
                             <div className="map_title">내비게이션</div>
                             <div className="map_contents">
@@ -535,8 +535,8 @@ export default function Home() {
                 </div>
 
                 {/* 마음전하기 섹션 */}
-                <div className="mb-[13.34%]">
-                    <div className="text-center p-[7.34%]">
+                <div className="mb-[13.34%]" data-aos="fade-up">
+                    <div className="text-center p-[6.5%]">
                         <div className=" space-y-10pxr ">
                             <div className="en_title tracking-widest">
                                 ACCONT
@@ -562,8 +562,8 @@ export default function Home() {
                     </div>
                 </div>
                 {/* 방명록 섹션 */}
-                <div className="mb-[13.34%]">
-                    <div className="text-center p-[7.34%]">
+                <div className="mb-[13.34%]" data-aos="fade-up">
+                    <div className="text-center p-[6.5%]">
                         <div className=" space-y-10pxr ">
                             <div className="en_title tracking-widest">
                                 GUESTBOOK
