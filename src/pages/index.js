@@ -10,6 +10,7 @@ import SwiperSection from "@/components/SwiperSection";
 import Countdown from "@/components/CountDown";
 import KakaoMap from "@/components/KakaoMap";
 import NavButton from "@/components/NavButton";
+import Accordion from "@/components/Accordion";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import Image_1 from "../images/image_1.jpg";
 import tw, { styled } from "twin.macro";
@@ -90,21 +91,22 @@ const MAN_CONTACT_DATA = {
     type: "man",
     data: [
         {
-            type: "groom",
+            type: "신랑",
             name: "길성재",
             number: "010-4872-8824",
             account: "카카오뱅크",
             account_number: "3333216490741",
+            kakao_qr_code: "FGlm2YKSt",
         },
         {
-            type: "father",
+            type: "아버지",
             name: "길철수",
             number: "010-2642-2355",
             account: "농협",
             account_number: "204030-52-1394",
         },
         {
-            type: "mather",
+            type: "어머니",
             name: "강해자",
             number: "010-8897-1187",
             account: "농협",
@@ -116,21 +118,21 @@ const WOMAN_CONTACT_DATA = {
     type: "woman",
     data: [
         {
-            type: "bride",
+            type: "신부",
             name: "정수진",
             number: "010-4872-8824",
             account: "",
             account_number: "",
         },
         {
-            type: "father",
+            type: "아버지",
             name: "길성재",
             number: "010-4872-8824",
             account: "",
             account_number: "",
         },
         {
-            type: "mather",
+            type: "어머니",
             name: "길성재",
             number: "010-4872-8824",
             account: "",
@@ -531,7 +533,35 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                {/* 달력 섹션 */}
+
+                {/* 마음전하기 섹션 */}
+                <div className="mb-[13.34%]">
+                    <div className="text-center p-[7.34%]">
+                        <div className=" space-y-10pxr ">
+                            <div className="en_title tracking-widest">
+                                ACCONT
+                            </div>
+                            <div className="contents_title pb-30pxr">
+                                마음 전하실 곳
+                            </div>
+                        </div>
+                        <div></div>
+                    </div>
+                    <div className="pb-[7.34%] px-[6.5%] space-y-10pxr">
+                        <div className="space-y-8pxr text-center break-keep  contents_text pb-[10%]">
+                            <p>
+                                참석이 어려워 직접 축하를 전하지 못하는 분들을
+                                위해 계좌번호를 기재하였습니다.
+                            </p>
+                            <p>넓은 마음으로 양해 부탁드리겠습니다.</p>
+                        </div>
+                        <div className="space-y-12pxr">
+                            <Accordion data={MAN_CONTACT_DATA} />
+                            <Accordion data={WOMAN_CONTACT_DATA} />
+                        </div>
+                    </div>
+                </div>
+                {/* 방명록 섹션 */}
                 <div className="mb-[13.34%]">
                     <div className="text-center p-[7.34%]">
                         <div className=" space-y-10pxr ">

@@ -4,9 +4,8 @@ export default function Contact({ info }) {
     return (
         <div className=" px-[7.34%] space-y-20pxr ">
             <div className="pb-10pxr border-b border-[#f1f1f1] border-dotted">
-                {info.type === "man"
-                    ? "신랑측"
-                    : info.type === "woman" && "신부측"}
+                {info.type === "man" ? "신랑" : info.type === "woman" && "신부"}
+                측
             </div>
             {info.data.map((item, index) => {
                 return (
@@ -15,14 +14,9 @@ export default function Contact({ info }) {
                         key={"contact-box-" + index}
                     >
                         <span className="flex-1">
-                            {info.type === "man"
-                                ? "신랑"
-                                : info.type === "woman" && "신부"}
-                            {item.type === "father"
-                                ? " 아버지"
-                                : item.type === "mather"
-                                ? " 어머니"
-                                : ""}
+                            {index > 0 && info.type === "man" && "신랑"}{" "}
+                            {index > 0 && info.type === "woman" && "신부"}{" "}
+                            {item.type}
                         </span>
                         <span className="flex-1 text-center">{item.name}</span>
                         <span className="flex gap-x-12pxr items-center justify-end flex-1">
