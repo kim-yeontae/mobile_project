@@ -11,6 +11,10 @@ import Countdown from "@/components/CountDown";
 import KakaoMap from "@/components/KakaoMap";
 import NavButton from "@/components/NavButton";
 import Accordion from "@/components/Accordion";
+import BgMusic from "@/components/BgMusic";
+import Modal from "@/components/Modal";
+import ShareButtonBox from "@/components/ShareButtonBox";
+
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import Image_1 from "../images/image_1.jpg";
 import tw, { styled } from "twin.macro";
@@ -142,21 +146,40 @@ const WOMAN_CONTACT_DATA = {
 };
 const GALLERYIEMS = [
     { src: Image_1, span: 1 },
-    { src: Image_1, span: 2 },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002361/JS100307_%EC%B5%9C%EC%A2%85_sgwrxt.jpg",
+        span: 2,
+    },
     { src: Image_1, span: 1 },
     { src: Image_1, span: 1 },
-    { src: Image_1, span: 2 },
-    { src: Image_1, span: 2 },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS108103_%EC%B5%9C%EC%A2%85_gh0pum.jpg",
+        span: 2,
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002330/JS108895_%EC%B5%9C%EC%A2%85_eua5yn.jpg",
+        span: 2,
+    },
     { src: Image_1, span: 1 },
-    { src: Image_1, span: 2 },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS108180_%EC%B5%9C%EC%A2%85_j2c8hl.jpg",
+        span: 2,
+    },
     { src: Image_1, span: 1 },
-    { src: Image_1, span: 2 },
-    { src: Image_1, span: 2 },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS109609_%EC%B5%9C%EC%A2%85_qxo9lu.jpg",
+        span: 2,
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS109223_%EC%B5%9C%EC%A2%85_wyasmy.jpg",
+        span: 2,
+    },
     { src: Image_1, span: 1 },
     // 추가 이미지들
 ];
 export default function Home() {
     const [modalState, setModalState] = useState(null);
+    const [isModal, setIsModal] = useState(null);
     const [interviewMore, setInterviewMore] = useState(false);
     const [activeGallery, setActiveGallery] = useState(null);
     const [guestName, setGuestName] = useState(null);
@@ -175,7 +198,7 @@ export default function Home() {
     return (
         <Wrapper>
             <SnowAnimation />
-
+            <BgMusic />
             <div className=" max-w-[450px] mx-auto pb-80pxr relative z-[2]">
                 <div className="mb-[21.34%] px-[6.5%]">
                     <div className="pt-48pxr pb-30pxr flex flex-col items-center">
@@ -244,7 +267,7 @@ export default function Home() {
                     <div className="mb-[13.34%]">
                         <div className="px-[7.34%] overflow-hidden">
                             <Image
-                                className={`w-full aspect-[3/2] object-cover rounded-xl duration-500`}
+                                className={`w-full aspect-[3/2] object-cover rounded-xl`}
                                 src={Image_1}
                                 alt=""
                                 layout="responsive"
@@ -481,7 +504,7 @@ export default function Home() {
                             <div className="map_contents">
                                 원하시는 앱을 선택하시면 길안내가 시작됩니다.
                             </div>
-                            <NavButton />
+                            <NavButton modalHandler={setIsModal} />
                         </div>
                         <div className="space-y-12pxr pb-[5%] border-b border-dotted">
                             <div className="map_title">대중교통</div>
@@ -610,6 +633,37 @@ export default function Home() {
                                 작성하기
                             </button>
                         </div>
+                    </div>
+                </div>
+                {/* 공유하기 섹션 */}
+                <div className="mb-[13.34%] px-[6.5%]" data-aos="fade-up">
+                    <div className="relative  rounded-xl overflow-hidden">
+                        <Image
+                            className={`w-full aspect-[3/2] object-cover`}
+                            src={Image_1}
+                            alt=""
+                            layout="responsive"
+                            width={1859}
+                            height={2789}
+                        />
+                        <p className="absolute top-0 left-0 bottom-0 right-0 bg-[rgba(0,0,0,.4)] flex items-end justify-end pr-20pxr contents_text pb-16pxr">
+                            같은 하늘 아래 <br />
+                            여러분의 축복 속에서 <br />
+                            새로운 출발를 시작합니다. <br />
+                            누구보다 이쁜사랑 ,<br /> 행복한 인생을 살겠습니다.
+                            <br />
+                            감사합니다.
+                        </p>
+                    </div>
+                    <div className="flex justify-center  pt-[7.34%]">
+                        <button
+                            className="flex items-center justify-center gap-x-6pxr w-full border border-[#e1e1e1] rounded-10pxr py-4pxr xs:py-8pxr contents_text"
+                            onClick={() => {
+                                setIsModal("share");
+                            }}
+                        >
+                            공유하기
+                        </button>
                     </div>
                 </div>
             </div>
@@ -863,6 +917,20 @@ export default function Home() {
                     </div>
                 </div>
             </ModalBack>
+
+            {isModal === "navi" && (
+                <Modal
+                    title={
+                        "앱이 설치가 되어 있지 않거나 PC버전일 경우 실행이 되지 않을수 있습니다."
+                    }
+                    closeHandle={setIsModal}
+                />
+            )}
+            {isModal === "share" && (
+                <Modal closeHandle={setIsModal}>
+                    <ShareButtonBox />
+                </Modal>
+            )}
         </Wrapper>
     );
 }

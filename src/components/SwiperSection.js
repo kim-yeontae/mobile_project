@@ -37,8 +37,8 @@ export default function SwiperSection({ data, activeIndex }) {
                                 src={item.src}
                                 alt={`slide-image-${index}`}
                                 className="w-full "
-                                width={0}
-                                height={0}
+                                width={450}
+                                height={450}
                                 // layout="fill"
                                 // objectFit="cover"
                             />

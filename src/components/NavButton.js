@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
-export default function NavButton() {
+export default function NavButton({ modalHandler }) {
     const destinationLat = "36.3469"; // 목적지 위도
     const destinationLng = "127.3936"; // 목적지 경도
     const [isMobile, setIsMobile] = useState(false);
@@ -17,7 +17,11 @@ export default function NavButton() {
         if (isMobile) {
             const naverUrl = `nmap://route?lat=${destinationLat}&lng=${destinationLng}`;
             window.location.href = naverUrl;
+            setTimeout(() => {
+                modalHandler("navi");
+            }, 2000);
         } else {
+            modalHandler("navi");
             console.log("네이버 지도 앱 실행 (모바일에서만 동작)");
         }
     };
@@ -26,7 +30,11 @@ export default function NavButton() {
         if (isMobile) {
             const kakaoUrl = `kakaomap://route?lat=${destinationLat}&lng=${destinationLng}`;
             window.location.href = kakaoUrl;
+            setTimeout(() => {
+                modalHandler("navi");
+            }, 2000);
         } else {
+            modalHandler("navi");
             console.log("카카오 지도 앱 실행 (모바일에서만 동작)");
         }
     };
@@ -35,13 +43,17 @@ export default function NavButton() {
         if (isMobile) {
             const tmapUrl = `tmap://route?goalname=Destination&goalx=${destinationLng}&goaly=${destinationLat}`;
             window.location.href = tmapUrl;
+            setTimeout(() => {
+                modalHandler("navi");
+            }, 2000);
         } else {
+            modalHandler("navi");
             console.log("티맵 앱 실행 (모바일에서만 동작)");
         }
     };
 
     return (
-        <div className="flex gap-x-8pxr ">
+        <div className="flex gap-8pxr flex-col ss:flex-row ">
             <button
                 onClick={handleNaverClick}
                 className="flex gap-x-4pxr xs:gap-x-8pxr items-center justify-center border px-8pxr xs:px-12pxr py-8pxr rounded-10pxr text-12pxr xs:text-16pxr flex-1"

@@ -45,7 +45,10 @@ export default function Accordion({ data }) {
             >
                 {data.data.map((item, index) => {
                     return (
-                        <div className="py-12pxr px-12pxr border-t space-y-8pxr">
+                        <div
+                            className="py-12pxr px-12pxr border-t space-y-8pxr"
+                            key={data.type + "accordion" + index}
+                        >
                             <div className="flex justify-between">
                                 <div className="text-13pxr ss:text-14pxr xs:text-15pxr">
                                     <span> {item.type} </span>
