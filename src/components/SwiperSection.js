@@ -47,10 +47,10 @@ export default function SwiperSection({ data, activeIndex }) {
                 })}
             </Swiper>
             <div className="swiper-button-next">
-                <ChevronLeftIcon width={24} hanging={24} />
+                <ChevronRightIcon width={24} hanging={24} />
             </div>
             <div className="swiper-button-prev">
-                <ChevronRightIcon width={24} hanging={24} />
+                <ChevronLeftIcon width={24} hanging={24} />
             </div>
         </>
     );

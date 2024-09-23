@@ -14,13 +14,13 @@ import Accordion from "@/components/Accordion";
 import BgMusic from "@/components/BgMusic";
 import Modal from "@/components/Modal";
 import ShareButtonBox from "@/components/ShareButtonBox";
-
 import { XMarkIcon } from "@heroicons/react/24/solid";
-import Image_1 from "../images/image_1.jpg";
 import tw, { styled } from "twin.macro";
 
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { MapIcon } from "@heroicons/react/24/outline";
+const Image_1 =
+    "https://res.cloudinary.com/dqetywuo0/image/upload/v1726322692/image_1_ntrqlf.jpg";
 
 const Wrapper = styled.div`
     ${tw`h-full`}
@@ -46,10 +46,10 @@ const Wrapper = styled.div`
         ${tw`text-12pxr xs:text-13pxr`}
     }
     .swiper-button-next {
-        ${tw`absolute top-1/2 -translate-y-1/2 left-8pxr z-10 cursor-pointer`}
+        ${tw`absolute top-1/2 -translate-y-1/2 right-8pxr z-10 cursor-pointer`}
     }
     .swiper-button-prev {
-        ${tw`absolute top-1/2 -translate-y-1/2 right-8pxr z-10 cursor-pointer`}
+        ${tw`absolute top-1/2 -translate-y-1/2 left-8pxr z-10 cursor-pointer`}
     }
     .swiper-pagination {
         ${tw`w-full flex justify-center gap-x-8pxr my-6pxr absolute bottom-6pxr z-10`}

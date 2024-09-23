@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Image_1 from "../images/image_1.jpg";
 import { useState, useEffect } from "react";
 const GalleryGrid = ({ onGalleryItemClick, data }) => {
     const [isMobile, setIsMobile] = useState(false);
