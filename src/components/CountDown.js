@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 
 export default function Countdown() {
-    // 목표 시간을 설정 (2024년 11월 3일 11시 30분)
-    const targetDate = new Date("2024-11-03T11:30:00");
+    // 목표 시간을 설정 (2024년 11월 3일 12시)
+    const targetDate = new Date("2024-11-03T12:00:00");
 
     // 각 단위를 state로 관리
     const [days, setDays] = useState(0);
@@ -74,9 +74,13 @@ export default function Countdown() {
                     </span>
                 </div>
             </div>
-            <div className="text-center  px-[7.34%] contents_text">
+            <div className="text-center  px-[4%] ss:px-[7.34%] contents_text">
                 우리의 새로운 출발이{" "}
-                <span className="text-[#e06363]">{days + 1}</span>일 남았습니다.
+                <span className="mx-8pxr relative ">
+                    <span className="relative z-[2]">{days + 1}</span>
+                    <span className="absolute z-[1] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#e06363] h-24pxr xs:h-28pxr w-24pxr xs:w-28pxr rounded-full"></span>
+                </span>
+                일 남았습니다.
             </div>
         </div>
     );

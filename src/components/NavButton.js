@@ -15,7 +15,7 @@ export default function NavButton({ modalHandler }) {
 
     const handleNaverClick = () => {
         if (isMobile) {
-            const naverUrl = `nmap://route?lat=${destinationLat}&lng=${destinationLng}`;
+            const naverUrl = `nmap://route?dlat=${destinationLat}&dlng=${destinationLng}`;
             window.location.href = naverUrl;
             setTimeout(() => {
                 modalHandler("navi");
@@ -28,7 +28,7 @@ export default function NavButton({ modalHandler }) {
 
     const handleKakaoClick = () => {
         if (isMobile) {
-            const kakaoUrl = `kakaomap://route?lat=${destinationLat}&lng=${destinationLng}`;
+            const kakaoUrl = `kakaomap://route?dlat=${destinationLat}&dlng=${destinationLng}`;
             window.location.href = kakaoUrl;
             setTimeout(() => {
                 modalHandler("navi");

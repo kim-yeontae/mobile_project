@@ -286,9 +286,9 @@ export default function Home() {
                                 길성재 &middot; 정수진
                             </span>
                             <p className="text-center contents-text">
-                                2024년 11월 3일 일요일 오전 11시 30분
+                                2024년 11월 3일 일요일 오후 12시
                                 <br />
-                                웨딩시티 신도림 7F, 아스타홀
+                                대전 라비에벨웨딩홀
                             </p>
                         </div>
                     </div>
@@ -452,7 +452,7 @@ export default function Home() {
                                     2024.11.03
                                 </div>
                                 <div className="contents_title pb-30pxr">
-                                    일요일 오전 11시 30분
+                                    일요일 오후 12시
                                 </div>
                             </div>
                         </div>
@@ -524,7 +524,7 @@ export default function Home() {
                     </div>
                     {/* 오시는길 섹션 */}
                     <div data-aos="fade-up">
-                        <div className="text-center p-[6.5%]">
+                        <div className="text-center py-[6.5%] px-[2%] ss:p-[6.5%]">
                             <div className=" space-y-10pxr ">
                                 <div className="en_title tracking-widest">
                                     LOCATION
