@@ -154,7 +154,7 @@ body {
         #e96f92 65%,
         #f7f7b6
     );
-    background-attachment: fixed;
+    /* background-attachment: fixed; */
     width: 100%;
     height: 100%;
 }
