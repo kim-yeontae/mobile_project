@@ -33,14 +33,10 @@ export default function SwiperSection({ data, activeIndex }) {
                             key={`slide-${index}`}
                             className={"rounded-8pxr overflow-hidden"}
                         >
-                            <Image
+                            <img
                                 src={item.src}
                                 alt={`slide-image-${index}`}
                                 className="w-full "
-                                width={450}
-                                height={450}
-                                // layout="fill"
-                                // objectFit="cover"
                             />
                         </SwiperSlide>
                     );

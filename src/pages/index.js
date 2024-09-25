@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import localFont from "next/font/local";
 import ModalBack from "@/components/ModalBack";
 import SnowAnimation from "@/components/Snows";
 import Contact from "@/components/Contact";
@@ -16,14 +15,14 @@ import Modal from "@/components/Modal";
 import ShareButtonBox from "@/components/ShareButtonBox";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import tw, { styled } from "twin.macro";
-
+import { supabase } from "@/lib/initSupabase";
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { MapIcon } from "@heroicons/react/24/outline";
 const Image_1 =
     "https://res.cloudinary.com/dqetywuo0/image/upload/v1726322692/image_1_ntrqlf.jpg";
 
 const Wrapper = styled.div`
-    ${tw`h-full`}
+    ${tw`h-full overflow-x-hidden`}
     .contents_title {
         ${tw`text-16pxr ss:text-18pxr xs:text-20pxr`}
     }
@@ -65,32 +64,7 @@ const Wrapper = styled.div`
         ${tw`py-[3.5%] text-center`}
     }
 `;
-const GUEST_BOOK_DATA = [
-    {
-        id: 1,
-        name: "김연태",
-        password: "1234",
-        contents: "테스트 방명록입니다.",
-    },
-    {
-        id: 2,
-        name: "신지용",
-        password: "1234",
-        contents: "테스트 방명록입니다.",
-    },
-    {
-        id: 3,
-        name: "김덕민",
-        password: "1234",
-        contents: "테스트 방명록입니다.",
-    },
-    {
-        id: 4,
-        name: "김환",
-        password: "1234",
-        contents: "테스트 방명록입니다.",
-    },
-];
+
 const MAN_CONTACT_DATA = {
     type: "man",
     data: [
@@ -185,7 +159,10 @@ export default function Home() {
     const [guestName, setGuestName] = useState(null);
     const [guestPassword, setGuestPassword] = useState(null);
     const [guestText, setGuestText] = useState(null);
-
+    const [visitList, setVisitList] = useState([]);
+    useEffect(() => {
+        fetchVisit();
+    }, []);
     const handleGalleryItemClick = (index) => {
         setActiveGallery(index);
         setModalState("gallery");
@@ -194,7 +171,86 @@ export default function Home() {
         setModalState(state);
         setActiveGallery(state);
     };
+    const guestDataReset = () => {
+        setGuestName(null);
+        setGuestPassword(null);
+        setGuestText(null);
+    };
+    const fetchVisit = async () => {
+        const { data, error } = await supabase
+            .from("visit")
+            .select("name, id, contents,created_at");
 
+        if (error) console.log("error", error);
+        else {
+            console.log(data);
+            setVisitList(data);
+        }
+    };
+    const addItem = async () => {
+        const value = {
+            name: guestName,
+            contents: guestText,
+            password: guestPassword,
+        };
+        console.log(value);
+        const { error } = await supabase.from("visit").insert(value);
+        if (error) console.log("error", error);
+        fetchVisit();
+    };
+    const deleltItem = async (id) => {
+        // 비밀번호 입력을 위한 confirm 대화상자
+        const inputPassword = prompt("비밀번호를 입력하세요:");
+        if (inputPassword === null) {
+            return; // 함수 종료
+        }
+        if (inputPassword === null || inputPassword === "") {
+            alert("비밀번호를 입력해야 합니다.");
+            return;
+        }
+
+        // 비밀번호 확인 로직 (서버에 올바른 비밀번호인지 확인)
+        const { data, error } = await supabase
+            .from("visit") // 게시물이 저장된 테이블
+            .select("password") // 비밀번호가 저장된 열
+            .eq("id", id) // 게시물 ID로 검색
+            .single(); // 하나의 레코드만 가져옴
+
+        if (error || !data) {
+            alert("게시물을 찾을 수 없습니다.");
+            return;
+        }
+
+        // 비밀번호 확인
+        if (data.password !== inputPassword) {
+            alert("비밀번호가 올바르지 않습니다.");
+            return;
+        }
+
+        // 비밀번호가 올바르면 게시물 삭제
+        const { error: deleteError } = await supabase
+            .from("visit")
+            .delete()
+            .eq("id", id); // 게시물 ID로 삭제
+
+        if (deleteError) {
+            alert("게시물 삭제 중 오류가 발생했습니다.");
+            return;
+        }
+
+        alert("게시물이 성공적으로 삭제되었습니다.");
+        fetchVisit();
+    };
+    const formatDate = (isoString) => {
+        const date = new Date(isoString);
+
+        // 연, 월, 일을 각각 가져오고, 두 자리 수로 포맷팅
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, "0"); // 0부터 시작하므로 1을 더함
+        const day = String(date.getDate()).padStart(2, "0");
+
+        return `${year}-${month}-${day}`; // yyyy-mm-dd 형식으로 반환
+    };
     return (
         <Wrapper>
             <SnowAnimation />
@@ -599,7 +655,7 @@ export default function Home() {
                     </div>
                     <div className="pb-[7.34%] px-[6.5%] space-y-10pxr">
                         <div className="space-y-8pxr">
-                            {GUEST_BOOK_DATA.map((item, index) => {
+                            {visitList.map((item, index) => {
                                 return (
                                     <div
                                         key={"guestbook" + index}
@@ -609,7 +665,11 @@ export default function Home() {
                                             <span className="font-semibold">
                                                 {item.name}
                                             </span>
-                                            <span>
+                                            <span
+                                                onClick={() => {
+                                                    deleltItem(item.id);
+                                                }}
+                                            >
                                                 <XMarkIcon
                                                     className="w-20pxr xs:w-20pxr h-24pxr xs:h-24pxr cursor-pointer"
                                                     width={32}
@@ -619,6 +679,7 @@ export default function Home() {
                                             </span>
                                         </div>
                                         <div>{item.contents}</div>
+                                        <div>{formatDate(item.created_at)}</div>
                                     </div>
                                 );
                             })}
@@ -863,6 +924,7 @@ export default function Home() {
             <ModalBack
                 action={modalState === "guestbook"}
                 closeHandle={handleModalCloseClick}
+                guestDataReset={guestDataReset}
             >
                 <div
                     className={`flex flex-col justify-start items-center pt-[10%] xs:pt-[15%] max-w-[450px] w-full`}
@@ -906,9 +968,9 @@ export default function Home() {
                         </div>
                         <button
                             onClick={() => {
-                                console.log("name", guestName);
-                                console.log("password", guestPassword);
-                                console.log("text", guestText);
+                                addItem();
+                                handleModalCloseClick(null);
+                                guestDataReset();
                             }}
                             className="flex w-full items-center justify-center gap-x-6pxr border border-[#e1e1e1] rounded-10pxr py-4pxr xs:py-8pxr contents_text mt-32pxr"
                         >

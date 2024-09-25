@@ -5,6 +5,7 @@ export default function ModalBack({
     action,
     closeHandle,
     className,
+    guestDataReset,
 }) {
     return (
         <div
@@ -19,6 +20,9 @@ export default function ModalBack({
                     height={32}
                     onClick={() => {
                         closeHandle(null);
+                        if (guestDataReset) {
+                            guestDataReset();
+                        }
                     }}
                 />
             </div>
