@@ -27,7 +27,7 @@ export default function Document() {
                 />
                 <meta
                     property="og:image"
-                    content="https://wedding.leekh.dev/assets/images/photo.jpeg"
+                    content="https://res.cloudinary.com/dqetywuo0/image/upload/v1727362236/KakaoTalk_20240926_234806628_f5kvfd.jpg"
                 />
                 <meta
                     property="og:description"
