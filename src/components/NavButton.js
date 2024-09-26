@@ -32,7 +32,7 @@ export default function NavButton({ modalHandler }) {
         if (isMobile) {
             // const kakaoUrl = `kakaonavi://route?&ep=${destinationLat},${destinationLng}&by=CAR`;
             // window.location.href = kakaoUrl;
-            Kakao.Navi.start({
+            Kakao.Navi.share({
                 name: "라비에벨웨딩홀",
                 x: 127.347149,
                 y: 36.302653,
