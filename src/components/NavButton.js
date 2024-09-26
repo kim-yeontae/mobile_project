@@ -4,7 +4,6 @@ import Image from "next/image";
 export default function NavButton({ modalHandler }) {
     const destinationLat = 36.302653; // 목적지 위도
     const destinationLng = 127.347149; // 목적지 경도
-    const [currentPosition, setCurrentPosition] = useState(null);
 
     const [isMobile, setIsMobile] = useState(false);
 
@@ -13,15 +12,11 @@ export default function NavButton({ modalHandler }) {
         if (typeof window !== "undefined" && typeof navigator !== "undefined") {
             setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
         }
-        navigator.geolocation.getCurrentPosition((position) => {
-            console.log(position);
-            setCurrentPosition(position);
-        });
     }, []);
-    console.log(currentPosition);
+
     const handleNaverClick = () => {
         if (isMobile) {
-            const naverUrl = `nmap://navigation?dlat=${destinationLat}&dlng=${destinationLng}&dname=라비에벨웨딩홀`;
+            const naverUrl = `nmap://place?lat=${destinationLat}&lng=${destinationLng}`;
             window.location.href = naverUrl;
             setTimeout(() => {
                 modalHandler("navi");
@@ -34,7 +29,7 @@ export default function NavButton({ modalHandler }) {
 
     const handleKakaoClick = () => {
         if (isMobile) {
-            const kakaoUrl = `kakaomap://route&ep=${destinationLat},${destinationLng}&by=CAR`;
+            const kakaoUrl = `kakaomap://route?&ep=${destinationLat},${destinationLng}&by=CAR`;
             window.location.href = kakaoUrl;
             setTimeout(() => {
                 modalHandler("navi");
