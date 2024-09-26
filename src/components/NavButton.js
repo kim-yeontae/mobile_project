@@ -12,6 +12,7 @@ export default function NavButton({ modalHandler }) {
         if (typeof window !== "undefined" && typeof navigator !== "undefined") {
             setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
         }
+        Kakao.init("b1089d9b587c1db18ab3c2bb7f05a3f1");
     }, []);
 
     const handleNaverClick = () => {
@@ -29,8 +30,14 @@ export default function NavButton({ modalHandler }) {
 
     const handleKakaoClick = () => {
         if (isMobile) {
-            const kakaoUrl = `kakaonavi://route?&ep=${destinationLat},${destinationLng}&by=CAR`;
-            window.location.href = kakaoUrl;
+            // const kakaoUrl = `kakaonavi://route?&ep=${destinationLat},${destinationLng}&by=CAR`;
+            // window.location.href = kakaoUrl;
+            Kakao.Navi.start({
+                name: "라비에벨웨딩홀",
+                x: 127.347149,
+                y: 36.302653,
+                coordType: "wgs84",
+            });
             setTimeout(() => {
                 modalHandler("navi");
             }, 2000);

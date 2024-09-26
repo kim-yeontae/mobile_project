@@ -40,6 +40,13 @@ export default function Document() {
                 <meta property="og:locale" content="ko_KR" />
                 <meta property="og:image:width" content="1200" />
                 <meta property="og:image:height" content="630" />
+                <script
+                    src="https://t1.kakaocdn.net/kakao_js_sdk/2.7.2/kakao.min.js"
+                    integrity="sha384-TiCUE00h649CAMonG018J2ujOgDKW/kVWlChEuu4jK2vxfAAD0eZxzCKakxg55G4"
+                    crossOrigin="anonymous"
+                    async
+                    defer
+                ></script>
             </Head>
             <body className="antialiased">
                 <Main />
