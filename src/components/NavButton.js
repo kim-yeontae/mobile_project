@@ -16,7 +16,8 @@ export default function NavButton({ modalHandler }) {
 
     const handleNaverClick = () => {
         if (isMobile) {
-            const naverUrl = `nmap://place?lat=${destinationLat}&lng=${destinationLng}`;
+            const naverUrl = `nmap://place?lat=${destinationLat}&lng=${destinationLng}&name=%EB%8C%80%EC%A0%84%20%EC%84%9C%EA%B5%AC%20%EA%B3%84%EB%B0%B1%EB%A1%9C%201108%20%EB%9D%BC%EB%B9%84%EC%97%90%EB%B2%A8%20%EC%9B%A8%EB%94%A9%ED%99%80
+&appname=wedding.biggestpond.site`;
             window.location.href = naverUrl;
             setTimeout(() => {
                 modalHandler("navi");
