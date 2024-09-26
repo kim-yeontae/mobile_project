@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function NavButton({ modalHandler }) {
-    const destinationLat = "36.3469"; // 목적지 위도
-    const destinationLng = "127.3936"; // 목적지 경도
+    const destinationLat = 36.302653; // 목적지 위도
+    const destinationLng = 127.347149; // 목적지 경도
     const [isMobile, setIsMobile] = useState(false);
 
     // 클라이언트 측에서만 navigator 객체에 접근하도록 useEffect 사용
@@ -15,7 +15,7 @@ export default function NavButton({ modalHandler }) {
 
     const handleNaverClick = () => {
         if (isMobile) {
-            const naverUrl = `nmap://navigation?dlat=${destinationLat}&dlng=${destinationLng}`;
+            const naverUrl = `nmap://navigation?dlat=${destinationLat}&dlng=${destinationLng}&dname=라비에벨웨딩홀`;
             window.location.href = naverUrl;
             setTimeout(() => {
                 modalHandler("navi");
@@ -28,7 +28,7 @@ export default function NavButton({ modalHandler }) {
 
     const handleKakaoClick = () => {
         if (isMobile) {
-            const kakaoUrl = `kakaomap://route?dlat=${destinationLat}&dlng=${destinationLng}`;
+            const kakaoUrl = `kakaomap://route&ep=${destinationLat},${destinationLng}&by=CAR`;
             window.location.href = kakaoUrl;
             setTimeout(() => {
                 modalHandler("navi");
@@ -41,7 +41,7 @@ export default function NavButton({ modalHandler }) {
 
     const handleTmapClick = () => {
         if (isMobile) {
-            const tmapUrl = `tmap://route?goalname=Destination&goalx=${destinationLng}&goaly=${destinationLat}`;
+            const tmapUrl = `tmap://route?goalname=라비에벨웨딩홀&goalx=${destinationLng}&goaly=${destinationLat}`;
             window.location.href = tmapUrl;
             setTimeout(() => {
                 modalHandler("navi");
