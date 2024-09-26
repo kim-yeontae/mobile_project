@@ -4,6 +4,8 @@ import Image from "next/image";
 export default function NavButton({ modalHandler }) {
     const destinationLat = 36.302653; // 목적지 위도
     const destinationLng = 127.347149; // 목적지 경도
+    const [currentPosition, setCurrentPosition] = useState(null);
+
     const [isMobile, setIsMobile] = useState(false);
 
     // 클라이언트 측에서만 navigator 객체에 접근하도록 useEffect 사용
@@ -11,8 +13,12 @@ export default function NavButton({ modalHandler }) {
         if (typeof window !== "undefined" && typeof navigator !== "undefined") {
             setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
         }
+        navigator.geolocation.getCurrentPosition((position) => {
+            console.log(position);
+            setCurrentPosition(position);
+        });
     }, []);
-
+    console.log(currentPosition);
     const handleNaverClick = () => {
         if (isMobile) {
             const naverUrl = `nmap://navigation?dlat=${destinationLat}&dlng=${destinationLng}&dname=라비에벨웨딩홀`;
