@@ -29,9 +29,7 @@ export default function NavButton({ modalHandler }) {
 
     const handleKakaoClick = () => {
         if (isMobile) {
-            const kakaoUrl = `kakaonavi://route?destination=${encodeURIComponent(
-                "라비에벨웨딩홀"
-            )}&lat=36.302653&lon=127.347149`;
+            const kakaoUrl = `kakaonavi://route?&ep=${destinationLat},${destinationLng}&by=CAR`;
             window.location.href = kakaoUrl;
             setTimeout(() => {
                 modalHandler("navi");
