@@ -15,7 +15,7 @@ export default function NavButton({ modalHandler }) {
 
     const handleNaverClick = () => {
         if (isMobile) {
-            const naverUrl = `nmap://route?dlat=${destinationLat}&dlng=${destinationLng}`;
+            const naverUrl = `nmap://navigation?dlat=${destinationLat}&dlng=${destinationLng}`;
             window.location.href = naverUrl;
             setTimeout(() => {
                 modalHandler("navi");

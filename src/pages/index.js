@@ -99,22 +99,22 @@ const WOMAN_CONTACT_DATA = {
             type: "신부",
             name: "정수진",
             number: "010-4872-8824",
-            account: "",
-            account_number: "",
+            account: "신한은행",
+            account_number: "110-563-402314",
         },
         {
             type: "아버지",
-            name: "길성재",
+            name: "정문기",
             number: "010-4872-8824",
-            account: "",
-            account_number: "",
+            account: "케이뱅크",
+            account_number: "100-126-526208",
         },
         {
             type: "어머니",
-            name: "길성재",
+            name: "조은미",
             number: "010-4872-8824",
-            account: "",
-            account_number: "",
+            account: "하나은행",
+            account_number: "117-910602-23707",
         },
     ],
 };
@@ -255,8 +255,8 @@ export default function Home() {
         <>
             <div className="bg_wrap">
                 <SnowAnimation />
-                <BgMusic />
             </div>
+            <BgMusic />
             <Wrapper>
                 <div className=" max-w-[450px] mx-auto pb-80pxr relative z-[2]">
                     <div className="mb-[21.34%] px-[6.5%]">
@@ -339,7 +339,7 @@ export default function Home() {
                                 <p>
                                     <span className="font-semibold">
                                         {" "}
-                                        길성재 &middot; 길성재{" "}
+                                        길철수 &middot; 강해자{" "}
                                     </span>
                                     의 장남{" "}
                                     <span className="font-semibold">
@@ -349,7 +349,7 @@ export default function Home() {
                                 <p>
                                     <span className="font-semibold">
                                         {" "}
-                                        길성재 &middot; 길성재
+                                        정문기 &middot; 조은미
                                     </span>{" "}
                                     의 장녀{" "}
                                     <span className="font-semibold">
@@ -358,7 +358,7 @@ export default function Home() {
                                 </p>
                             </div>
 
-                            <div className="flex justify-center  pt-[7.34%]">
+                            {/* <div className="flex justify-center  pt-[7.34%]">
                                 <button
                                     className="flex items-center justify-center gap-x-6pxr w-[120px] ss:w-[140px] xs:w-[180px] border border-[#e1e1e1] rounded-10pxr    py-4pxr xs:py-8pxr contents_text"
                                     onClick={() => {
@@ -372,7 +372,7 @@ export default function Home() {
                                     />
                                     <span>연락하기</span>
                                 </button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     {/* 인터뷰 섹션 */}
@@ -742,7 +742,7 @@ export default function Home() {
                     </div>
                 </div>
                 {/* 연락하기 모달 */}
-                <ModalBack
+                {/* <ModalBack
                     action={modalState === "phone"}
                     closeHandle={setModalState}
                 >
@@ -758,14 +758,14 @@ export default function Home() {
                             <Contact info={WOMAN_CONTACT_DATA} />
                         </div>
                     </div>
-                </ModalBack>
+                </ModalBack> */}
                 {/* 인터뷰 모달 */}
                 <ModalBack
                     action={modalState === "interview"}
                     closeHandle={setModalState}
                 >
                     <div
-                        className={` w-full max-w-[450px] pb-[7.34%] pt-[10%] xs:pt-[15%]`}
+                        className={` w-full max-w-[450px] pb-[7.34%] pt-[5%] `}
                     >
                         <div className="w-full pb-[11.12%] flex flex-col justify-start items-center">
                             <p className="contents_text">INTERVIEW</p>
