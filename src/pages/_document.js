@@ -47,6 +47,16 @@ export default function Document() {
                     async
                     defer
                 ></script>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link
+                    rel="preconnect"
+                    href="https://fonts.gstatic.com"
+                    crossorigin
+                />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
+                    rel="stylesheet"
+                ></link>
             </Head>
             <body className="antialiased">
                 <Main />

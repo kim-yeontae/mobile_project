@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
 :root {
     --background: #ffffff;
     --foreground: #171717;
@@ -135,6 +135,11 @@ body {
     position: relative;
     overflow-y: scroll;
     overflow-x: hidden;
+}
+.main_en_font {
+    font-family: "Parisienne", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 .bg_wrap {
     position: fixed;

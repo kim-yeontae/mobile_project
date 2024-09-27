@@ -24,6 +24,9 @@ const Image_1 =
 
 const Wrapper = styled.div`
     ${tw`h-full overflow-x-hidden`}
+    .main_en_font {
+        ${tw`text-24pxr ss:text-32pxr xs:text-40pxr`}
+    }
     .contents_title {
         ${tw`text-16pxr ss:text-18pxr xs:text-20pxr`}
     }
@@ -54,6 +57,7 @@ const Wrapper = styled.div`
     .swiper-pagination {
         ${tw`w-full flex justify-center gap-x-8pxr my-6pxr absolute bottom-6pxr z-10`}
     }
+
     .swiper-pagination-bullet {
         ${tw`inline-block w-8pxr h-8pxr bg-white rounded-full opacity-70 cursor-pointer`}
     }
@@ -127,6 +131,14 @@ const INSTARGRAM_IMG = [
     {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS108103_%EC%B5%9C%EC%A2%85_gh0pum.jpg",
         hash: ["제주도", "만남"],
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002330/JS108895_%EC%B5%9C%EC%A2%85_eua5yn.jpg",
+        hash: ["대전", "왜안돼는거야"],
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS108180_%EC%B5%9C%EC%A2%85_j2c8hl.jpg",
+        hash: ["제발", "돼줘"],
     },
 ];
 const GALLERYIEMS = [
@@ -272,14 +284,14 @@ export default function Home() {
                 <div className=" max-w-[450px] mx-auto pb-80pxr relative z-[2]">
                     <div className="mb-[21.34%] px-[6.5%]">
                         <div className="pt-48pxr pb-30pxr flex flex-col items-center">
-                            <span className="text-30pxr">
+                            <span>
                                 2024
                                 <span>/</span>
                                 11
                                 <span>/</span>
                                 03
                             </span>
-                            <span>SUNDAY</span>
+                            <div className="main_en_font">Happy Wedding</div>
                         </div>
 
                         <div>
@@ -391,18 +403,14 @@ export default function Home() {
                         <div className="text-center p-[6.5%]">
                             <div className=" space-y-10pxr ">
                                 <div className="en_title tracking-widest">
-                                    INTERVIEW
+                                    MEMORIES
                                 </div>
                                 <div className="contents_title pb-30pxr">
-                                    우리 두 사람의 이야기
+                                    행복한 추억들
                                 </div>
                             </div>
                             <div className="leading-7 contents_text">
-                                <p>
-                                    결혼을 앞두고 저희 두 사람의
-                                    <br />
-                                    인터뷰를 준비했습니다.
-                                </p>
+                                <p>우리의 추억을 소개합니다.</p>
                             </div>
                         </div>
                         <div className="mb-[13.34%]">
