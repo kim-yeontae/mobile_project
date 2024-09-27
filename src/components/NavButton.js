@@ -12,7 +12,9 @@ export default function NavButton({ modalHandler }) {
         if (typeof window !== "undefined" && typeof navigator !== "undefined") {
             setIsMobile(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
         }
-        Kakao.init("b1089d9b587c1db18ab3c2bb7f05a3f1");
+        if (window.Kakao && !window.Kakao.isInitialized()) {
+            window.Kakao.init("b1089d9b587c1db18ab3c2bb7f05a3f1");
+        }
     }, []);
 
     const handleNaverClick = () => {
@@ -30,14 +32,14 @@ export default function NavButton({ modalHandler }) {
 
     const handleKakaoClick = () => {
         if (isMobile) {
-            // const kakaoUrl = `kakaonavi://route?&ep=${destinationLat},${destinationLng}&by=CAR`;
-            // window.location.href = kakaoUrl;
-            Kakao.Navi.share({
-                name: "라비에벨웨딩홀",
-                x: 127.347149,
-                y: 36.302653,
-                coordType: "wgs84",
-            });
+            if (window.Kakao && window.Kakao.Navi) {
+                window.Kakao.Navi.share({
+                    name: "라비에벨웨딩홀",
+                    x: 127.347149,
+                    y: 36.302653,
+                    coordType: "wgs84",
+                });
+            }
             setTimeout(() => {
                 modalHandler("navi");
             }, 2000);
@@ -72,8 +74,10 @@ export default function NavButton({ modalHandler }) {
                             "https://res.cloudinary.com/dqetywuo0/image/upload/v1726745292/unnamed_pdlb9o.png"
                         }
                         className="rounded-4pxr overflow-hidden"
+                        alt="naverIcon"
                         width={20}
                         height={20}
+                        priority={false}
                     />
                 </span>
                 <span>네이버</span>
@@ -89,7 +93,9 @@ export default function NavButton({ modalHandler }) {
                         }
                         className="rounded-4pxr overflow-hidden"
                         width={20}
+                        alt="kakaoIcon"
                         height={20}
+                        priority={false}
                     />
                 </span>
                 <span>카카오</span>
@@ -104,8 +110,10 @@ export default function NavButton({ modalHandler }) {
                             "https://res.cloudinary.com/dqetywuo0/image/upload/v1726746251/TMAP_Web_1-10_mjvwnd.png"
                         }
                         className="rounded-4pxr overflow-hidden bg-white"
+                        alt="tmapIcon"
                         width={20}
                         height={20}
+                        priority={false}
                     />
                 </span>
                 <span>티맵</span>

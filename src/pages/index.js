@@ -13,6 +13,7 @@ import Accordion from "@/components/Accordion";
 import BgMusic from "@/components/BgMusic";
 import Modal from "@/components/Modal";
 import ShareButtonBox from "@/components/ShareButtonBox";
+import InstartGram from "@/components/InstartGram";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import tw, { styled } from "twin.macro";
 import { supabase } from "@/lib/initSupabase";
@@ -118,6 +119,16 @@ const WOMAN_CONTACT_DATA = {
         },
     ],
 };
+const INSTARGRAM_IMG = [
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002361/JS100307_%EC%B5%9C%EC%A2%85_sgwrxt.jpg",
+        hash: ["안녕", "추억"],
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS108103_%EC%B5%9C%EC%A2%85_gh0pum.jpg",
+        hash: ["제주도", "만남"],
+    },
+];
 const GALLERYIEMS = [
     { src: Image_1, span: 1 },
     {
@@ -278,7 +289,7 @@ export default function Home() {
                                 alt=""
                                 width={1859}
                                 height={2789}
-                                layout="responsive"
+                                priority={false}
                             />
                         </div>
                         <div className="flex flex-col items-center justify-center ">
@@ -329,9 +340,9 @@ export default function Home() {
                                     className={`w-full aspect-[3/2] object-cover rounded-xl`}
                                     src={Image_1}
                                     alt=""
-                                    layout="responsive"
                                     width={1859}
                                     height={2789}
+                                    priority={false}
                                 />
                             </div>
 
@@ -396,19 +407,10 @@ export default function Home() {
                         </div>
                         <div className="mb-[13.34%]">
                             <div className="px-[7.34%] overflow-hidden">
-                                <Image
-                                    className={`w-full aspect-[3/2] object-cover rounded-xl duration-500`}
-                                    src={
-                                        "https://res.cloudinary.com/dqetywuo0/image/upload/v1726322692/image_1_ntrqlf.jpg"
-                                    }
-                                    alt=""
-                                    width={1859}
-                                    height={2789}
-                                    layout="responsive"
-                                />
+                                <InstartGram data={INSTARGRAM_IMG} />
                             </div>
 
-                            <div className="flex justify-center  pt-[7.34%]">
+                            {/* <div className="flex justify-center  pt-[7.34%]">
                                 <button
                                     className="flex items-center justify-center gap-x-6pxr w-[180px] ss:w-[200px] xs:w-[240px] border border-[#e1e1e1] rounded-10pxr    py-4pxr xs:py-8pxr contents_text"
                                     onClick={() => {
@@ -422,7 +424,7 @@ export default function Home() {
                                     />
                                     <span>신랑 & 신부의 인터뷰 보기</span>
                                 </button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                     {/* 갤러리 섹션 */}
@@ -715,9 +717,9 @@ export default function Home() {
                                 className={`w-full aspect-[3/2] object-cover`}
                                 src={Image_1}
                                 alt=""
-                                layout="responsive"
                                 width={1859}
                                 height={2789}
+                                priority={false}
                             />
                             <p className="absolute top-0 left-0 bottom-0 right-0 bg-[rgba(0,0,0,.4)] flex items-end justify-end pr-20pxr contents_text pb-16pxr">
                                 같은 하늘 아래 <br />
@@ -760,7 +762,7 @@ export default function Home() {
                     </div>
                 </ModalBack> */}
                 {/* 인터뷰 모달 */}
-                <ModalBack
+                {/* <ModalBack
                     action={modalState === "interview"}
                     closeHandle={setModalState}
                 >
@@ -898,7 +900,7 @@ export default function Home() {
                             )}
                         </div>
                     </div>
-                </ModalBack>
+                </ModalBack> */}
                 {/* 갤러리 모달 */}
                 <ModalBack
                     action={modalState === "gallery"}
@@ -933,7 +935,7 @@ export default function Home() {
                             alt=""
                             width={600}
                             height={600}
-                            layout="responsive"
+                            priority={false}
                         />
                     </div>
                 </ModalBack>

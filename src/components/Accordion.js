@@ -57,25 +57,6 @@ export default function Accordion({ data }) {
                                         {item.name}
                                     </span>
                                 </div>
-                                {item.kakao_qr_code && (
-                                    <div>
-                                        <a
-                                            href="kakaotalk://kakaopay/money/to/qr?qr_code={FGlm2YKSt}"
-                                            className="bg-[#ffdf00] flex gap-x-4pxr  items-center justify-center w-60pxr xs:w-70pxr h-24pxr xs:h-30pxr rounded-6pxr text-12pxr xs:text-13pxr"
-                                        >
-                                            <span>
-                                                <Image
-                                                    src={
-                                                        "https://res.cloudinary.com/dqetywuo0/image/upload/v1726914079/kpay_a_wwawqr.webp"
-                                                    }
-                                                    className="w-30pxr xs:w-40pxr"
-                                                    width={50}
-                                                    height={10}
-                                                />
-                                            </span>
-                                        </a>
-                                    </div>
-                                )}
                             </div>
                             <div className="flex justify-between items-center text-11pxr ss:text-13pxr xs:text-14pxr ">
                                 <div className="flex gap-x-4pxr items-center">

@@ -24,18 +24,19 @@ const GalleryGrid = ({ onGalleryItemClick, data }) => {
             {data.map((image, index) => (
                 <div
                     key={index}
-                    className={`relative bg-cover rounded-4pxr overflow-hidden ${
+                    className={`relative  rounded-4pxr overflow-hidden ${
                         image.span === 2 ? "row-span-2" : ""
                     }`}
-                    style={{ backgroundImage: `url(${image.src})` }}
+                    // style={{ backgroundImage: `url(${image.src})` }}
                     onClick={() => onGalleryItemClick(index)}
                 >
                     <Image
                         src={image.src}
                         alt={`image-${index}`}
-                        className=" cursor-pointer"
-                        layout="fill"
-                        objectFit="cover"
+                        className={`cursor-pointer object-cover w-full h-full  `}
+                        width={1859}
+                        height={2789}
+                        priority={false}
                     />
                 </div>
             ))}

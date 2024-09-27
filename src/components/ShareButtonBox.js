@@ -66,6 +66,8 @@ export default function ShareButtonBox() {
                     className="rounded-xl"
                     width={60}
                     height={60}
+                    alt="kakao_share_btn"
+                    priority={false}
                 />
                 <span>카카오톡</span>
             </button>
@@ -82,6 +84,8 @@ export default function ShareButtonBox() {
                     className="rounded-xl"
                     width={60}
                     height={60}
+                    alt="url_share_btn"
+                    priority={false}
                 />
                 <span>URL 복사</span>
             </button>
