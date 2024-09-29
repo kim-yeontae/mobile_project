@@ -130,7 +130,7 @@ const INSTARGRAM_IMG = {
     hash: [
         "가족사진",
         "냥족사진",
-        "둥이",
+        "동이",
         "은동이",
         "동자매",
         "개냥이",
@@ -478,9 +478,9 @@ export default function Home() {
                                     우리 가족을 소개합니다.
                                 </div>
                             </div>
-                            <div className="leading-7 contents_text">
+                            {/* <div className="leading-7 contents_text">
                                 <p>우리의 가족을 소개합니다.</p>
-                            </div>
+                            </div> */}
                         </div>
                         <div className="mb-[13.34%]">
                             <div className="px-[7.34%] overflow-hidden">
