@@ -17,8 +17,6 @@ import { HeartIcon } from "@heroicons/react/24/solid";
 import { IoPaperPlaneOutline, IoBookmarkOutline } from "react-icons/io5";
 
 export default function InstartGram({ data }) {
-    const [hashTag, setHashTag] = useState([]);
-
     return (
         <div className="">
             <Swiper
@@ -27,16 +25,10 @@ export default function InstartGram({ data }) {
                 pagination={{
                     clickable: true,
                 }}
-                onInit={() => {
-                    setHashTag(data[0].hash);
-                }}
-                onSlideChange={(e) => {
-                    setHashTag(data[e.activeIndex].hash);
-                }}
-                className="instargram-swiper w-full"
+                className="instargram-swiper w-full rounded-8pxr overflow-hidden"
                 modules={[Pagination]}
             >
-                {data.map((item, index) => {
+                {data.images.map((item, index) => {
                     return (
                         <SwiperSlide
                             key={`instargram-slide-${index}`}
@@ -44,7 +36,7 @@ export default function InstartGram({ data }) {
                         >
                             <Image
                                 src={item.src}
-                                className="w-full aspect-[2/1.2] object-cover"
+                                className="w-full aspect-[2/1.5] object-cover"
                                 alt={`instargram-slide-image-${index}`}
                                 width={450}
                                 height={450}
@@ -78,8 +70,8 @@ export default function InstartGram({ data }) {
                         <IoBookmarkOutline className="h-24pxr w-24pxr xs:h-32pxr xs:w-32pxr" />
                     </div>
                 </div>
-                <div className="py-8pxr flex gap-x-10pxr">
-                    {hashTag.map((item, index) => {
+                <div className="py-8pxr flex gap-x-10pxr flex-wrap text-12pxr xs:text-14pxr">
+                    {data.hash.map((item, index) => {
                         return (
                             <span
                                 key={"instargram-slide-hashtag-" + index}

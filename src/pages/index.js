@@ -57,6 +57,9 @@ const Wrapper = styled.div`
     .swiper-pagination {
         ${tw`w-full flex justify-center gap-x-8pxr my-6pxr absolute bottom-6pxr z-10`}
     }
+    .modal-swiper .swiper-pagination {
+        ${tw`flex-wrap px-10pxr gap-y-8pxr`}
+    }
 
     .swiper-pagination-bullet {
         ${tw`inline-block w-8pxr h-8pxr bg-white rounded-full opacity-70 cursor-pointer`}
@@ -123,56 +126,118 @@ const WOMAN_CONTACT_DATA = {
         },
     ],
 };
-const INSTARGRAM_IMG = [
-    {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002361/JS100307_%EC%B5%9C%EC%A2%85_sgwrxt.jpg",
-        hash: ["안녕", "추억"],
-    },
-    {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS108103_%EC%B5%9C%EC%A2%85_gh0pum.jpg",
-        hash: ["제주도", "만남"],
-    },
-    {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002330/JS108895_%EC%B5%9C%EC%A2%85_eua5yn.jpg",
-        hash: ["대전", "왜안돼는거야"],
-    },
-    {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS108180_%EC%B5%9C%EC%A2%85_j2c8hl.jpg",
-        hash: ["제발", "돼줘"],
-    },
-];
+const INSTARGRAM_IMG = {
+    hash: [
+        "가족사진",
+        "냥족사진",
+        "둥이",
+        "은동이",
+        "동자매",
+        "개냥이",
+        "구닌",
+        "존잘",
+        "존예",
+    ],
+    images: [
+        {
+            src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727615903/%EC%A0%84%ED%88%AC%EB%B3%B5_1-min_bwonfs.png",
+        },
+        {
+            src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727615903/%EC%A0%84%ED%88%AC%EB%B3%B5_3-min_wuweif.png",
+        },
+        {
+            src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727615902/%EC%A0%84%ED%88%AC%EB%B3%B5_5-min_rb9s8q.png",
+        },
+
+        {
+            src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727615902/%EC%A0%84%ED%88%AC%EB%B3%B5_2-min_gwrpgz.png",
+        },
+        {
+            src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727615902/%EC%A0%84%ED%88%AC%EB%B3%B5_6-min_ojstqt.png",
+        },
+        {
+            src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727615902/%EC%A0%84%ED%88%AC%EB%B3%B5_4-min_kzqwol.png",
+        },
+    ],
+};
+
 const GALLERYIEMS = [
-    { src: Image_1, span: 1 },
+    // 실내턱시도
     {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002361/JS100307_%EC%B5%9C%EC%A2%85_sgwrxt.jpg",
-        span: 2,
-    },
-    { src: Image_1, span: 1 },
-    { src: Image_1, span: 1 },
-    {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS108103_%EC%B5%9C%EC%A2%85_gh0pum.jpg",
-        span: 2,
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612287/JS107103_%EC%B5%9C%EC%A2%85_-min_dtm8l6.jpg",
     },
     {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002330/JS108895_%EC%B5%9C%EC%A2%85_eua5yn.jpg",
-        span: 2,
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612287/JS107086_%EC%B5%9C%EC%A2%85_-min_rwzu1k.jpg",
     },
-    { src: Image_1, span: 1 },
+    // 정복초록
     {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS108180_%EC%B5%9C%EC%A2%85_j2c8hl.jpg",
-        span: 2,
-    },
-    { src: Image_1, span: 1 },
-    {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS109609_%EC%B5%9C%EC%A2%85_qxo9lu.jpg",
-        span: 2,
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727615481/KakaoTalk_20240929_220349538-min_atq3pd.png",
     },
     {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727002331/JS109223_%EC%B5%9C%EC%A2%85_wyasmy.jpg",
-        span: 2,
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612407/KakaoTalk_20240926_084443831_02-min_isrshm.jpg",
     },
-    { src: Image_1, span: 1 },
-    // 추가 이미지들
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612406/KakaoTalk_20240926_084443831_01-min_uadefq.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612404/KakaoTalk_20240926_084443831_11-min_aqbo6y.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612404/KakaoTalk_20240926_084443831_09-min_rglwtb.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612404/KakaoTalk_20240926_084443831_10-min_htrrdv.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612402/KakaoTalk_20240926_084443831_08-min_ypmp4y.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612402/KakaoTalk_20240926_084443831_07-min_ciocng.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612402/KakaoTalk_20240926_084443831_06-min_buwapp.jpg",
+    },
+
+    // 회색 슈트
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612408/KakaoTalk_20240926_084443831_04-min_fi2lsq.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612288/JS108389_%EC%B5%9C%EC%A2%85_-min_ur1j4p.jpg",
+    },
+    // 검정셔츠
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612287/JS108180_%EC%B5%9C%EC%A2%85_-min_hzhflw.jpg",
+    },
+
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612406/KakaoTalk_20240926_084443831_05-min_h8rpfp.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612289/JS109609_%EC%B5%9C%EC%A2%85_-min_xhm27q.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612288/JS109223_%EC%B5%9C%EC%A2%85_-min_sl5nm0.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612288/JS108875_%EC%B5%9C%EC%A2%85_-min_abr1kp.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612288/JS108895_%EC%B5%9C%EC%A2%85_-min_keewqu.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612407/KakaoTalk_20240926_084443831_03-min_agpo4b.jpg",
+    },
+    // 예복 검정
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612287/JS100307_%EC%B5%9C%EC%A2%85_-min_aippdl.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612286/JS100115_%EC%B5%9C%EC%A2%85_-min_epofht.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612286/JS100075_%EC%B5%9C%EC%A2%85_-min_rkvchi.jpg",
+    },
 ];
 export default function Home() {
     const [modalState, setModalState] = useState(null);
@@ -297,7 +362,9 @@ export default function Home() {
                         <div>
                             <Image
                                 className=" w-full img_cover rounded-t-full"
-                                src={Image_1}
+                                src={
+                                    "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612404/KakaoTalk_20240926_084443831-min_p6btjd.jpg"
+                                }
                                 alt=""
                                 width={1859}
                                 height={2789}
@@ -326,23 +393,23 @@ export default function Home() {
                                     소중한 분들을 초대합니다
                                 </div>
                             </div>
-                            <div className="space-y-[7.12%] leading-7 contents_text">
+                            <div className="space-y-[7.12%] leading-7 contents_text break-keep">
                                 <p>
-                                    앞으로의 여정에서 같이 나아갈 한사람과
+                                    함께하는 5번째 가을, <br />
+                                    9년전 우연으로 시작된 인연이{" "}
+                                    <br className="ss:hidden" />
+                                    운명이 되었고
                                     <br />
-                                    평생을 약속하기로 하였습니다.
+                                    서로 가장 친한 벗이자 반려가 되어 <br />
+                                    함께 손잡고 걸어가려 합니다.
                                 </p>
                                 <p>
-                                    우연으로 시작한 만남이 운명이 되었고
+                                    성재와 수진이의 가을이 깊어지는{" "}
+                                    <br className="ss:hidden" />
+                                    11월 3일
                                     <br />
-                                    서로의 가장 친한 벗이자 반려가 되어
-                                    <br />
-                                    믿음으로 함께 하고자 합니다.
-                                </p>
-                                <p>
-                                    가을이 깊어지는 그 날
-                                    <br /> 자리를 빛내어 주시면 <br />
-                                    더없는 기쁨이 되겠습니다.
+                                    자리를 빛내주시어 축하해주시면
+                                    감사하겠습니다.
                                 </p>
                             </div>
                         </div>
@@ -350,7 +417,9 @@ export default function Home() {
                             <div className="px-[7.34%] overflow-hidden">
                                 <Image
                                     className={`w-full aspect-[3/2] object-cover rounded-xl`}
-                                    src={Image_1}
+                                    src={
+                                        "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612402/KakaoTalk_20240926_084443831_08-min_ypmp4y.jpg"
+                                    }
                                     alt=""
                                     width={1859}
                                     height={2789}
@@ -403,14 +472,14 @@ export default function Home() {
                         <div className="text-center p-[6.5%]">
                             <div className=" space-y-10pxr ">
                                 <div className="en_title tracking-widest">
-                                    MEMORIES
+                                    FAMILY
                                 </div>
                                 <div className="contents_title pb-30pxr">
-                                    행복한 추억들
+                                    우리 가족을 소개합니다.
                                 </div>
                             </div>
                             <div className="leading-7 contents_text">
-                                <p>우리의 추억을 소개합니다.</p>
+                                <p>우리의 가족을 소개합니다.</p>
                             </div>
                         </div>
                         <div className="mb-[13.34%]">
@@ -439,12 +508,12 @@ export default function Home() {
                     <div data-aos="fade-up">
                         <div className="text-center p-[6.5%]">
                             <div className=" space-y-10pxr ">
-                                <div className="en_title tracking-widest">
+                                <div className="tracking-widest contents_title">
                                     GALLERY
                                 </div>
-                                <div className="contents_title pb-30pxr">
+                                {/* <div className="contents_title pb-30pxr">
                                     새로운 시작의 준비
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="mb-[13.34%]">
@@ -722,14 +791,16 @@ export default function Home() {
                     <div className="mb-[13.34%] px-[6.5%]" data-aos="fade-up">
                         <div className="relative  rounded-xl overflow-hidden">
                             <Image
-                                className={`w-full aspect-[3/2] object-cover`}
-                                src={Image_1}
+                                className={`w-full aspect-[2/1.5] object-cover`}
+                                src={
+                                    "https://res.cloudinary.com/dqetywuo0/image/upload/v1727617258/%EB%A7%88%EC%A7%80%EB%A7%89_1-min_ktoqov.jpg"
+                                }
                                 alt=""
                                 width={1859}
                                 height={2789}
                                 priority={false}
                             />
-                            <p className="absolute top-0 left-0 bottom-0 right-0 bg-[rgba(0,0,0,.4)] flex items-end justify-end pr-20pxr contents_text pb-16pxr">
+                            <p className="absolute top-0 left-0 bottom-0 right-0 bg-[rgba(0,0,0,.4)] flex w-full items-end justify-start pl-20pxr text-10pxr xs:text-12pxr pb-16pxr">
                                 같은 하늘 아래 <br />
                                 여러분의 축복 속에서 <br />
                                 새로운 출발를 시작합니다. <br />
@@ -749,6 +820,12 @@ export default function Home() {
                                 공유하기
                             </button>
                         </div>
+                    </div>
+                    {/*Copyright*/}
+                    <div class="text-12pxr xs:text-sm w-full pb-10 pt-5 text-center ">
+                        Copyright 2024.{" "}
+                        <a href="mailto:kimyeont960@gmail.com">김연태</a> All
+                        rights reserved.
                     </div>
                 </div>
                 {/* 연락하기 모달 */}
@@ -938,7 +1015,7 @@ export default function Home() {
                         <Image
                             className={`w-full rounded-xl h-auto`}
                             src={
-                                "https://res.cloudinary.com/dqetywuo0/image/upload/v1726323960/KakaoTalk_20240914_232501529_c99wil.jpg"
+                                "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612290/KakaoTalk_20240927_000248816-min_t1oooc.jpg"
                             }
                             alt=""
                             width={600}

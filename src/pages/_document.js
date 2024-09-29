@@ -8,7 +8,7 @@ export default function Document() {
                 <link rel="icon" href="/favicon.ico" />
                 <meta
                     name="viewport"
-                    content="width=device-width, initial-scale=1"
+                    content="width=device-width, initial-scale=1 ,maximum-scale=1.0, user-scalable=no"
                 />
                 <meta name="theme-color" content="#000000" />
                 <meta
@@ -31,7 +31,7 @@ export default function Document() {
                 />
                 <meta
                     property="og:description"
-                    content="11월 3일 토요일 오후 12시 라비에벨웨딩홀"
+                    content="11월 3일 일요일 오후 12시 라비에벨웨딩홀"
                 />
                 <meta
                     property="og:site_name"

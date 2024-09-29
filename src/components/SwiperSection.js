@@ -20,6 +20,7 @@ export default function SwiperSection({ data, activeIndex }) {
                 pagination={{
                     clickable: true,
                 }}
+                wrapperClass={"items-center"}
                 navigation={{
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
@@ -28,13 +29,15 @@ export default function SwiperSection({ data, activeIndex }) {
                     console.log(e.activeIndex);
                 }}
                 modules={[Pagination, Navigation]}
-                className="mySwiper w-full"
+                className="modal-swiper w-full"
             >
                 {data.map((item, index) => {
                     return (
                         <SwiperSlide
                             key={`slide-${index}`}
-                            className={"rounded-8pxr overflow-hidden"}
+                            className={
+                                "rounded-8pxr overflow-hidden !flex items-center"
+                            }
                         >
                             <Image
                                 src={item.src}

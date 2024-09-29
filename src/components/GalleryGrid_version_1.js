@@ -17,17 +17,23 @@ const GalleryGrid = ({ onGalleryItemClick, data }) => {
         : "calc(((425px - 40px)/2 - 8px/2)/20 * 10)";
 
     return (
-        <div className={`max-w-[450px] grid grid-cols-5 gap-1 px-[2.23%]`}>
+        <div
+            className={`max-w-[450px] grid grid-cols-3 gap-1 px-[2.23%]`}
+            style={{ gridAutoRows: gridTemplateRows }}
+        >
             {data.map((image, index) => (
                 <div
                     key={index}
-                    className={`relative  rounded-4pxr overflow-hidden `}
+                    className={`relative  rounded-4pxr overflow-hidden ${
+                        image.span === 2 ? "row-span-2" : ""
+                    }`}
+                    // style={{ backgroundImage: `url(${image.src})` }}
                     onClick={() => onGalleryItemClick(index)}
                 >
                     <Image
                         src={image.src}
                         alt={`image-${index}`}
-                        className={`cursor-pointer object-cover aspect-[1/1] `}
+                        className={`cursor-pointer object-cover w-full h-full  `}
                         width={1859}
                         height={2789}
                         priority={false}
