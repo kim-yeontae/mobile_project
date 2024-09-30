@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import ModalBack from "@/components/ModalBack";
 import SnowAnimation from "@/components/Snows";
-import Contact from "@/components/Contact";
-import QuestionBox from "@/components/QuestionBox";
+// import Contact from "@/components/Contact";
+// import QuestionBox from "@/components/QuestionBox";
 import GalleryGrid from "@/components/GalleryGrid";
 import SwiperSection from "@/components/SwiperSection";
 import Countdown from "@/components/CountDown";
@@ -17,7 +17,7 @@ import InstartGram from "@/components/InstartGram";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import tw, { styled } from "twin.macro";
 import { supabase } from "@/lib/initSupabase";
-import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
+// import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { MapIcon } from "@heroicons/react/24/outline";
 
 const Image_1 =
