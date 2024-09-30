@@ -3,6 +3,8 @@ import { useEffect } from "react";
 import "aos/dist/aos.css"; // AOS 스타일 불러오기
 import Head from "next/head";
 import AOS from "aos";
+/** @type {import("next").Viewport} */
+
 export const viewport = {
     width: "device-width",
     initialScale: 1,
