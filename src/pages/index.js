@@ -19,6 +19,14 @@ import tw, { styled } from "twin.macro";
 import { supabase } from "@/lib/initSupabase";
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { MapIcon } from "@heroicons/react/24/outline";
+
+export const viewport = {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+};
+
 const Image_1 =
     "https://res.cloudinary.com/dqetywuo0/image/upload/v1726322692/image_1_ntrqlf.jpg";
 
@@ -822,7 +830,7 @@ export default function Home() {
                         </div>
                     </div>
                     {/*Copyright*/}
-                    <div class="text-12pxr xs:text-sm w-full pb-10 pt-5 text-center ">
+                    <div className="text-12pxr xs:text-sm w-full pb-10 pt-5 text-center ">
                         Copyright 2024.{" "}
                         <a href="mailto:kimyeont960@gmail.com">김연태</a> All
                         rights reserved.
