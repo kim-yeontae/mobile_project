@@ -20,7 +20,6 @@ import { supabase } from "@/lib/initSupabase";
 import { PhoneIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
 import { MapIcon } from "@heroicons/react/24/outline";
 import Head from "next/head";
-
 const Image_1 =
     "https://res.cloudinary.com/dqetywuo0/image/upload/v1726322692/image_1_ntrqlf.jpg";
 
@@ -346,10 +345,10 @@ export default function Home() {
             <Head>
                 <meta charset="utf-8" />
                 <link rel="icon" href="/favicon.ico" />
-                {/* <meta
+                <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1 ,maximum-scale=1.0, user-scalable=no"
-                /> */}
+                />
                 <meta name="theme-color" content="#000000" />
                 <meta
                     name="description"
