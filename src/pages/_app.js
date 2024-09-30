@@ -3,6 +3,12 @@ import { useEffect } from "react";
 import "aos/dist/aos.css"; // AOS 스타일 불러오기
 import Head from "next/head";
 import AOS from "aos";
+export const viewport = {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+};
 export default function App({ Component, pageProps }) {
     useEffect(() => {
         AOS.init({
@@ -17,10 +23,10 @@ export default function App({ Component, pageProps }) {
             <Head>
                 <meta charset="utf-8" />
                 <link rel="icon" href="/favicon.ico" />
-                <meta
+                {/* <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1 ,maximum-scale=1.0, user-scalable=no"
-                />
+                /> */}
                 <meta name="theme-color" content="#000000" />
                 <meta
                     name="description"
