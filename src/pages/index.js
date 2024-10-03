@@ -796,7 +796,7 @@ export default function Home() {
                                             </div>
                                         );
                                     } else {
-                                        if (index < 3) {
+                                        if (index < 4) {
                                             return (
                                                 <div
                                                     key={"guestbook" + index}
