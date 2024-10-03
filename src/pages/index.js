@@ -168,7 +168,8 @@ const GALLERYIEMS = [
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612287/JS107103_%EC%B5%9C%EC%A2%85_-min_dtm8l6.jpg",
     },
     {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612287/JS107086_%EC%B5%9C%EC%A2%85_-min_rwzu1k.jpg",
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727938839/KakaoTalk_20241003_155458689-min_bkaaeg.jpg",
+        option: "object-top",
     },
     // 정복초록
     {
@@ -176,12 +177,14 @@ const GALLERYIEMS = [
     },
     {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612407/KakaoTalk_20240926_084443831_02-min_isrshm.jpg",
+        option: "object-top",
     },
     {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612406/KakaoTalk_20240926_084443831_01-min_uadefq.jpg",
     },
     {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612404/KakaoTalk_20240926_084443831_11-min_aqbo6y.jpg",
+        option: "object-top",
     },
     {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612404/KakaoTalk_20240926_084443831_09-min_rglwtb.jpg",
@@ -190,10 +193,10 @@ const GALLERYIEMS = [
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612404/KakaoTalk_20240926_084443831_10-min_htrrdv.jpg",
     },
     {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612402/KakaoTalk_20240926_084443831_08-min_ypmp4y.jpg",
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727940200/KakaoTalk_20241003_161541676-min_wlmfyp.jpg",
     },
     {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612402/KakaoTalk_20240926_084443831_07-min_ciocng.jpg",
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727938757/KakaoTalk_20241003_155633295-min_igxyhg.jpg",
     },
     {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612402/KakaoTalk_20240926_084443831_06-min_buwapp.jpg",
@@ -206,16 +209,24 @@ const GALLERYIEMS = [
     {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612288/JS108389_%EC%B5%9C%EC%A2%85_-min_ur1j4p.jpg",
     },
-    // 검정셔츠
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727938748/KakaoTalk_20241003_155449786-min_k05dcr.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727938748/KakaoTalk_20241003_155449786_01-min_oso3zq.jpg",
+        option: "object-top",
+    },
     {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612287/JS108180_%EC%B5%9C%EC%A2%85_-min_hzhflw.jpg",
     },
+    // 검정셔츠
 
     {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612406/KakaoTalk_20240926_084443831_05-min_h8rpfp.jpg",
     },
     {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612289/JS109609_%EC%B5%9C%EC%A2%85_-min_xhm27q.jpg",
+        option: "object-top",
     },
     {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612288/JS109223_%EC%B5%9C%EC%A2%85_-min_sl5nm0.jpg",
@@ -249,6 +260,7 @@ export default function Home() {
     const [guestPassword, setGuestPassword] = useState(null);
     const [guestText, setGuestText] = useState(null);
     const [visitList, setVisitList] = useState([]);
+    const [moreVisitList, setMoreVisitList] = useState(false);
     useEffect(() => {
         fetchVisit();
     }, []);
@@ -273,7 +285,7 @@ export default function Home() {
         if (error) console.log("error", error);
         else {
             console.log(data);
-            setVisitList(data);
+            setVisitList(data.reverse());
         }
     };
     const addItem = async () => {
@@ -744,36 +756,81 @@ export default function Home() {
                             <div></div>
                         </div>
                         <div className="pb-[7.34%] px-[6.5%] space-y-10pxr">
-                            <div className="space-y-8pxr">
+                            <div
+                                className={`space-y-8pxr ${
+                                    moreVisitList
+                                        ? "max-h-[500px] overflow-y-scroll"
+                                        : ""
+                                }`}
+                            >
                                 {visitList.map((item, index) => {
-                                    return (
-                                        <div
-                                            key={"guestbook" + index}
-                                            className="bg-[rgba(117,81,125,.5)] px-16pxr py-14pxr rounded-8pxr map_contents"
-                                        >
-                                            <div className="flex items-center justify-between pb-4pxr">
-                                                <span className="font-semibold">
-                                                    {item.name}
-                                                </span>
-                                                <span
-                                                    onClick={() => {
-                                                        deleltItem(item.id);
-                                                    }}
+                                    if (moreVisitList) {
+                                        return (
+                                            <div
+                                                key={"guestbook" + index}
+                                                className="bg-[rgba(117,81,125,.5)] px-16pxr py-14pxr rounded-8pxr map_contents"
+                                            >
+                                                <div className="flex items-center justify-between pb-4pxr">
+                                                    <span className="font-semibold">
+                                                        {item.name}
+                                                    </span>
+                                                    <span
+                                                        onClick={() => {
+                                                            deleltItem(item.id);
+                                                        }}
+                                                    >
+                                                        <XMarkIcon
+                                                            className="w-20pxr xs:w-20pxr h-24pxr xs:h-24pxr cursor-pointer"
+                                                            width={32}
+                                                            height={32}
+                                                            onClick={() => {}}
+                                                        />
+                                                    </span>
+                                                </div>
+                                                <div>{item.contents}</div>
+                                                <div>
+                                                    {formatDate(
+                                                        item.created_at
+                                                    )}
+                                                </div>
+                                            </div>
+                                        );
+                                    } else {
+                                        if (index < 3) {
+                                            return (
+                                                <div
+                                                    key={"guestbook" + index}
+                                                    className="bg-[rgba(117,81,125,.5)] px-16pxr py-14pxr rounded-8pxr map_contents"
                                                 >
-                                                    <XMarkIcon
-                                                        className="w-20pxr xs:w-20pxr h-24pxr xs:h-24pxr cursor-pointer"
-                                                        width={32}
-                                                        height={32}
-                                                        onClick={() => {}}
-                                                    />
-                                                </span>
-                                            </div>
-                                            <div>{item.contents}</div>
-                                            <div>
-                                                {formatDate(item.created_at)}
-                                            </div>
-                                        </div>
-                                    );
+                                                    <div className="flex items-center justify-between pb-4pxr">
+                                                        <span className="font-semibold">
+                                                            {item.name}
+                                                        </span>
+                                                        <span
+                                                            onClick={() => {
+                                                                deleltItem(
+                                                                    item.id
+                                                                );
+                                                            }}
+                                                        >
+                                                            <XMarkIcon
+                                                                className="w-20pxr xs:w-20pxr h-24pxr xs:h-24pxr cursor-pointer"
+                                                                width={32}
+                                                                height={32}
+                                                                onClick={() => {}}
+                                                            />
+                                                        </span>
+                                                    </div>
+                                                    <div>{item.contents}</div>
+                                                    <div>
+                                                        {formatDate(
+                                                            item.created_at
+                                                        )}
+                                                    </div>
+                                                </div>
+                                            );
+                                        }
+                                    }
                                 })}
                             </div>
                             <div className="flex justify-end">
@@ -786,6 +843,18 @@ export default function Home() {
                                     작성하기
                                 </button>
                             </div>
+                            {visitList.length > 4 && !moreVisitList && (
+                                <div className="flex justify-center  pt-[7.34%]">
+                                    <button
+                                        className="flex items-center justify-center gap-x-6pxr w-full border border-[#e1e1e1] rounded-10pxr py-4pxr xs:py-8pxr contents_text"
+                                        onClick={() => {
+                                            setMoreVisitList(true);
+                                        }}
+                                    >
+                                        전체보기
+                                    </button>
+                                </div>
+                            )}
                         </div>
                     </div>
                     {/* 공유하기 섹션 */}
@@ -825,8 +894,8 @@ export default function Home() {
                     {/*Copyright*/}
                     <div className="text-12pxr xs:text-sm w-full pb-10 pt-5 text-center ">
                         Copyright 2024.{" "}
-                        <a href="mailto:kimyeont960@gmail.com">김연태</a> All
-                        rights reserved.
+                        <a href="mailto:kimyeont960@gmail.com">biggespondt</a>{" "}
+                        All rights reserved.
                     </div>
                 </div>
                 {/* 연락하기 모달 */}

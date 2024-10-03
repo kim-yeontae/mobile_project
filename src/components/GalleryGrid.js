@@ -27,7 +27,7 @@ const GalleryGrid = ({ onGalleryItemClick, data }) => {
                     <Image
                         src={image.src}
                         alt={`image-${index}`}
-                        className={`cursor-pointer object-cover aspect-[1/1] `}
+                        className={`cursor-pointer object-cover aspect-[1/1] ${image.option} `}
                         width={1859}
                         height={2789}
                         priority={false}
