@@ -193,9 +193,6 @@ const GALLERYIEMS = [
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612404/KakaoTalk_20240926_084443831_10-min_htrrdv.jpg",
     },
     {
-        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727940200/KakaoTalk_20241003_161541676-min_wlmfyp.jpg",
-    },
-    {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727938757/KakaoTalk_20241003_155633295-min_igxyhg.jpg",
     },
     {
@@ -249,6 +246,9 @@ const GALLERYIEMS = [
     },
     {
         src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727612286/JS100075_%EC%B5%9C%EC%A2%85_-min_rkvchi.jpg",
+    },
+    {
+        src: "https://res.cloudinary.com/dqetywuo0/image/upload/v1727940200/KakaoTalk_20241003_161541676-min_wlmfyp.jpg",
     },
 ];
 export default function Home() {

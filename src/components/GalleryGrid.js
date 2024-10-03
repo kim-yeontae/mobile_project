@@ -24,12 +24,12 @@ const GalleryGrid = ({ onGalleryItemClick, data }) => {
                     className={`relative  rounded-4pxr overflow-hidden `}
                     onClick={() => onGalleryItemClick(index)}
                 >
-                    <Image
+                    <img
                         src={image.src}
                         alt={`image-${index}`}
                         className={`cursor-pointer object-cover aspect-[1/1] ${image.option} `}
-                        width={1859}
-                        height={2789}
+                        // width={1859}
+                        // height={2789}
                         priority={false}
                     />
                 </div>
