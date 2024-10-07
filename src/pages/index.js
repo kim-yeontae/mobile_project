@@ -90,14 +90,14 @@ const MAN_CONTACT_DATA = {
             name: "길철수",
             number: "010-2642-2355",
             account: "농협",
-            account_number: "204030-52-1394",
+            account_number: "204030-52-139474",
         },
         {
             type: "어머니",
             name: "강해자",
             number: "010-8897-1187",
             account: "농협",
-            account_number: "204030-52-1394",
+            account_number: "204030-52-139474",
         },
     ],
 };
