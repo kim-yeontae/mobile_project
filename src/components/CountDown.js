@@ -76,9 +76,11 @@ export default function Countdown() {
             </div>
             <div className="text-center  px-[4%] ss:px-[7.34%] contents_text">
                 우리의 새로운 출발이{" "}
-                <span className="px-8pxr relative ">
-                    <span className="relative z-[2]">{days + 1}</span>
-                    <span className="absolute z-[1] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#e06363] h-24pxr xs:h-28pxr w-24pxr xs:w-28pxr rounded-full"></span>
+                <span className="px-8pxr relative inline-block">
+                    <span className="relative inline-block z-[2]">
+                        {days + 1}
+                    </span>
+                    <span className="absolute z-[1] inline-block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-[#e06363] h-24pxr xs:h-28pxr w-24pxr xs:w-28pxr rounded-full"></span>
                 </span>
                 일 남았습니다.
             </div>
