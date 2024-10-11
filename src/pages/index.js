@@ -893,9 +893,13 @@ export default function Home() {
                     </div>
                     {/*Copyright*/}
                     <div className="text-12pxr xs:text-sm w-full pb-10 pt-5 text-center ">
-                        Copyright 2024.{" "}
-                        <a href="mailto:kimyeont960@gmail.com">biggespondt</a>{" "}
-                        All rights reserved.
+                        제작자 :{" "}
+                        <a
+                            href="mailto:kimyeont960@gmail.com"
+                            className="underline"
+                        >
+                            biggestpond
+                        </a>{" "}
                     </div>
                 </div>
                 {/* 연락하기 모달 */}
